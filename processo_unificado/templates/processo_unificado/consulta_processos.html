@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+   <div class="content-wrapper">
+     {% include 'menu.html' %}
+     <br>
+      <div class="content-wrapper">
+        <div class="content">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card card-primary card-outline">
+                  <div class="card-header">
+                    <h5 class="card-title m-0">Featured</h5>
+                  </div>
+                  <div class="card-body">
+                    <h6 class="card-title">Special title treatment</h6>
+
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              <!-- /.col-md-6 -->
+              <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">DataTable with default features</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>Ações</th>
+                        <th>Numero Processo</th>
+                        <th>Nome Interessado</th>
+                        <th>Cnpj/Cpf</th>
+                        <th>Numero Licenca</th>
+                        <th>Data Abertura</th>
+                        <th>Data Validade</th>
+                        <th>Municipio</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {% for processo in processos %}
+                        <tr>
+                          <td>{{ processo.id_processo }}</td>
+                          <td>{{ processo.numero_processo }}</td>
+                          {% if processo.razao_social and processo.cnpj %}
+                          <td>{{ processo.razao_social }}</td>
+                          <td>{{ processo.cnpj }}</td>
+                          {% else %}
+                          <td>{{ processo.nome_pessoa }}</td>
+                          <td>{{ processo.cpf }}</td>
+                          {% endif %}
+                          <td>{{ processo.numero_licenca }}</td>
+                          <td>{{ processo.data_abertura }}</td>
+                          <td>{{ processo.data_validade }}</td>
+                          <td>{{ processo.municipio }}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+            <!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </div>
+       </div>
+   </div>
+{% endblock %}
