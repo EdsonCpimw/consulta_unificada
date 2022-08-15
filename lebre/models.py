@@ -8,7 +8,7 @@ class ViewProcessoAdministrativoLebre(models.Model):
 
     numero_processo = models.CharField(max_length=100)
     razao_social = models.CharField(max_length=100, null=True, blank=True)
-    cnpj = models.CharField(max_length=16)
+    cnpj = models.CharField(max_length=16, null=True, blank=True)
     nome_pessoa = models.CharField(max_length=100, null=True, blank=True)
     cpf = models.CharField(max_length=14, null=True, blank=True)
     data_abertura_processo = models.DateField(default=datetime.datetime.now)
