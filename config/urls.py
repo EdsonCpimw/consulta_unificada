@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from processo_unificado import urls as processos_unificados_urls
+from pad import urls as pad_urls
+from lebre import urls as lebre_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('consulta/', include(processos_unificados_urls))
+    path('consulta/', include(processos_unificados_urls)),
+    path('corporativo/', include(pad_urls)),
+    path('lebre/', include(lebre_urls)),
 ]
