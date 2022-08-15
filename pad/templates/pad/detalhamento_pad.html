@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% block content %}
+   <div class="content-wrapper">
+     {% include 'menu.html' %}
+       <br>
+        <div class="content">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                  <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Processo Administrativo Digital</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                              <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                              <div class="box">
+                                <div class="box-header">
+
+                                  <!-- /.box-header -->
+                                  <div class="col-xs-12">
+                                    <div class="table-responsive">
+                                      <table class="table">
+                                        <tr>
+                                          <th>N° Processo:</th>
+                                          <td>Petrobras</td>
+
+                                          <th>Data de Abertura:</th>
+                                          <td><span>06/12/2018</span></td>
+                                        </tr>
+                                        <tr>
+                                          <th style="width: 15%;">N° do Instrumento:</th>
+                                          <td><span>IN254826</span></td>
+
+                                          <th style="width: 15%;">Data de Validade:</th>
+                                          <td><span>06/12/2020</span></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Assunto:</th>
+                                          <td><span>Solcitação para Licença de Operação</span></td>
+                                          <th></th>
+                                          <td></td>
+                                        </tr>
+                                      </table>
+                                      <div>
+                                        <table class="table table-bordered">
+                                          <thead>
+                                            <tr class="table-secondary">
+                                              <th style="width: 30%">CPF/CNPJ</th>
+                                              <th>NOME</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>1.</td>
+                                              <td>Update software</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                 </div>
+                 <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Dados do Empreendimento</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                              <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                              <div class="box">
+                                <div class="box-header">
+
+                                  <!-- /.box-header -->
+                                  <div class="col-xs-12">
+                                    <div class="table-responsive">
+                                      <table class="table">
+                                        <tr>
+                                          <th>Nome fantasia:</th>
+                                          <td>Petrobras</td>
+
+                                          <th>Atividade:</th>
+                                          <td><span></span></td>
+                                        </tr>
+                                        <tr>
+                                          <th style="width: 15%;">Endereço:</th>
+                                          <td><span>Rua Augusto Queiroga</span></td>
+
+                                          <th style="width: 15%; pr-10">Número:</th>
+                                          <td><span>465</span></td>
+                                        </tr>
+                                        <tr>
+                                          <th>Município:</th>
+                                          <td><span>Duque de Caxias</span></td>
+                                          <th></th>
+                                          <td></td>
+                                        </tr>
+                                      </table>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div>
+                    </div>
+                 </div>
+                 <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Documentos</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                              <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                          <table id="example2" class="table table-bordered table-striped">
+                              <thead>
+                              <tr>
+                                <th>Ações</th>
+                                <th>Autor</th>
+                                <th>Tipo de Documento</th>
+                                <th>Setor</th>
+                                <th>Data de Criação</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              {% for processo in processos %}
+                                <tr>
+                                  <td class="">
+                                    <a href="#" class="text-muted">
+                                      <i class="fas fa-search"></i>
+                                    </a>
+                                  </td>
+                                  <td>{{ processo.numero_processo }}</td>
+                                  <td>{{ processo.numero_licenca }}</td>
+                                  <td>{{ processo.data_abertura }}</td>
+                                  <td>{{ processo.data_validade }}</td>
+                                </tr>
+                              {% endfor %}
+                              </tbody>
+                          </table>
+                    </div>
+                 </div>
+                  <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Tramitação do Processo</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                              <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                          <table id="example" class="table table-bordered table-striped">
+                              <thead>
+                              <tr>
+                                <th>Data de Tramitação</th>
+                                <th>Sigla Setor</th>
+                                <th>Setor Destino</th>
+                                <th>Observação</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              {% for processo in processos %}
+                                <tr>
+                                  <td>{{ processo.numero_processo }}</td>
+                                  <td>{{ processo.nome_pessoa }}</td>
+                                  <td>{{ processo.data_abertura }}</td>
+                                  <td>{{ processo.data_validade }}</td>
+                                </tr>
+                              {% endfor %}
+                              </tbody>
+                          </table>
+                    </div>
+                 </div>
+              </div>
+          </div>
+        </div>
+   </div>
+{% endblock %}
