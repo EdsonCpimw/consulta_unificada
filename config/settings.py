@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'pad',
     'lebre',
     'processo_unificado'
@@ -94,6 +95,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'lebre.db.sqlite3',
     },
+    'scup_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'scup.db.sqlite3',
+    },
 }
 
 
@@ -145,4 +150,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DATABASE_ROUTERS = ['routers.db_routers.AuthRouter','routers.db_routers.Pad','routers.db_routers.Lebre']
+DATABASE_ROUTERS = [
+    'routers.db_routers.AuthRouter',
+    'routers.db_routers.Pad',
+    'routers.db_routers.Lebre',
+    'routers.db_routers.Scup'
+]
