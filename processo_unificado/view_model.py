@@ -17,6 +17,7 @@ class ProcessoAdministrativoViewModel:
         self.municipio = None
         self.logradouro = None
         self.numero = None
+        self.banco = None
 
     def setModelPad(self, processo_pad):
 
@@ -34,6 +35,7 @@ class ProcessoAdministrativoViewModel:
         self.municipio = processo_pad.municipio
         self.logradouro = processo_pad.logradouro
         self.numero = processo_pad.numero
+        self.banco = 1
 
 
     def setModelLebre(self, processo_lebre):
@@ -53,6 +55,7 @@ class ProcessoAdministrativoViewModel:
         self.municipio = processo_lebre.municipio
         self.logradouro = processo_lebre.logradouro
         self.numero = processo_lebre
+        self.banco = 2
 
 
 
