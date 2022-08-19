@@ -4,5 +4,5 @@ from lebre.views import DetalhamentoProcesso
 app_name = 'lebre'
 
 urlpatterns = [
-    path('detalhamento/', DetalhamentoProcesso.as_view(), name='detalhamento')
+    path('<int:pk>/detalhamento/', DetalhamentoProcesso.as_view(), name='detalhamento')
 ]
