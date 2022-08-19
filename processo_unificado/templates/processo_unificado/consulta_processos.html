@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 {% block content %}
    <div class="content-wrapper">
      {% include 'menu.html' %}
@@ -26,12 +27,8 @@
                                 {{form.nome_interessado}}
                               </div>
                               <div class="form-group">
-                                <label>Cpf/Cnpj:</label>
+                                <label>CPF/CNPJ:</label>
                                  {{form.cpf_cnpj}}
-                              </div>
-                              <div class="form-group">
-                                <label>Atividade:</label>
-                                {{form.atividade}}
                               </div>
                             </div>
                             <!-- /.col -->
@@ -55,12 +52,10 @@
                               <div class="form-group">
                                 <label>Município:</label>
                                   {{form.nome_municipio}}
-<!--                                <select class="form-control select2" data-placeholder="Please select a product" name="nome_municipio" style="width: 100%;">-->
-<!--                                    <option selected="selected"></option>-->
-<!--                                    {% for municipio in municipios %}-->
-<!--                                    <option>{{municipio}}</option>-->
-<!--                                    {% endfor %}-->
-<!--                                </select>-->
+                              </div>
+                              <div class="form-group">
+                                <label>Atividade:</label>
+                                {{form.atividade}}
                               </div>
 <!--                              <div class="form-group">-->
 <!--                                <label>Região Hidrográfica:</label>-->
@@ -80,9 +75,7 @@
                           <!-- /.row -->
                         </div>
                         <div class="card-footer">
-<!--                            <a href="#" class="btn btn-default float-right mt-3 mb-3">Limpar Filtro</a>-->
-<!--                            <a href="#" type="submit" class="btn btn-success float-right mr-2 mt-3 mb-3">Pesquisar</a>-->
-                          <button  class="btn btn-default float-right">Limpar Filtro</button>
+                          <button type="reset" class="btn btn-default float-right" onclick="reset()">Limpar Filtro</button>
                           <button type="submit" class="btn btn-info float-right mr-2">Pesquisar</button>
                         </div>
                     </form>
@@ -112,28 +105,42 @@
                         <th>Data Abertura</th>
                         <th>Data Validade</th>
                         <th>Municipio</th>
+                        <th>Tipo de Processo</th>
                       </tr>
                       </thead>
                       <tbody>
                       {% for processo in processos %}
                         <tr>
+                            {% if processo.banco == 1 %}
                           <td class="">
-                            <a href="#" class="text-muted">
+                            <a href="{% url 'pad:detalhamento' pk=processo.id_processo  %}" class="text-muted">
                               <i class="fas fa-search"></i>
                             </a>
                           </td>
+                          {% elif processo.banco == 2 %}
+                          <td class="">
+                            <a href="{% url 'lebre:detalhamento' pk=processo.id_processo  %}" class="text-muted">
+                              <i class="fas fa-search"></i>
+                            </a>
+                          </td>
+                          {% endif %}
                           <td>{{ processo.numero_processo }}</td>
                           {% if processo.razao_social and processo.cnpj %}
                           <td>{{ processo.razao_social }}</td>
-                          <td>{{ processo.cnpj }}</td>
+                          <td>{{ processo.cnpj | cnpj }}</td>
                           {% else %}
                           <td>{{ processo.nome_pessoa }}</td>
-                          <td>{{ processo.cpf }}</td>
+                          <td>{{ processo.cpf | cpf}}</td>
                           {% endif %}
                           <td>{{ processo.numero_licenca }}</td>
-                          <td>{{ processo.data_abertura }}</td>
-                          <td>{{ processo.data_validade }}</td>
+                          <td>{{ processo.data_abertura | date:"d/m/Y" }}</td>
+                          <td>{{ processo.data_validade | date:"d/m/Y"}}</td>
                           <td>{{ processo.municipio }}</td>
+                          {% if processo.banco == 1 %}
+                          <td>Digital</td>
+                          {% elif processo.banco == 2 %}
+                          <td>Físico</td>
+                          {% endif %}
                         </tr>
                       {% endfor %}
                       </tbody>
