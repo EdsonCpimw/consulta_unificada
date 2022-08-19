@@ -18,6 +18,8 @@ from django.urls import path, include
 from processo_unificado import urls as processos_unificados_urls
 from pad import urls as pad_urls
 from lebre import urls as lebre_urls
+from config import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,3 +27,5 @@ urlpatterns = [
     path('corporativo/', include(pad_urls)),
     path('lebre/', include(lebre_urls)),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
