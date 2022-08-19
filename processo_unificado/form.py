@@ -12,7 +12,7 @@ class ConsultaModelForm(forms.Form):
         attrs={'class': 'form-control', 'placeholder': "Nome do Interessado"}
     ))
     cpf_cnpj = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={'class': 'form-control', 'placeholder': "CPF OU CNPJ"}
+        attrs={'class': 'form-control cpfcnpj', 'placeholder': "CPF OU CNPJ"}
     ))
     atividade = forms.CharField(required=False, widget=forms.TextInput(
         attrs={'class': 'form-control', 'placeholder': "Atividade"}

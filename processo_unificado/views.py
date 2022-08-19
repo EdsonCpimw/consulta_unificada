@@ -20,22 +20,22 @@ class ConsultaProcessos(ListView):
         context = super(ConsultaProcessos, self).get_context_data(**kwargs)
         context['form'] = ConsultaModelForm
         context['municipios'] = municipios
-        print(context['municipios'])
         return context
 
     def get_queryset(self):
         processos = []
         pad = ViewProcessoAdministrativoCorporativo.objects.all()
         lebre = ViewProcessoAdministrativoLebre.objects.all()
-        if self.request.GET['numero_processo'] or self.request.GET['nome_interessado'] or \
-                self.request.GET['cpf_cnpj'] or self.request.GET['atividade'] or \
-                self.request.GET['numero_instrumento'] or self.request.GET['nome_municipio']:
-            processos_pad = ConsultaPadFilter(self.request.GET, queryset=pad)
-            processos_pad = ProcessoAdministrativoViewModel.pass_processo_pad(self, processos_pad.qs)
-            processos_lebre = ConsultaLebreFilter(self.request.GET, queryset=lebre)
-            processos_lebre = ProcessoAdministrativoViewModel.pass_processo_lebre(self, processos_lebre.qs)
-            processos = processos_pad + processos_lebre
-            return processos
+        if self.request.GET:
+            if self.request.GET['numero_processo'] or self.request.GET['nome_interessado'] or \
+                    self.request.GET['cpf_cnpj'] or self.request.GET['atividade'] or \
+                    self.request.GET['numero_instrumento'] or self.request.GET['nome_municipio']:
+                processos_pad = ConsultaPadFilter(self.request.GET, queryset=pad)
+                processos_pad = ProcessoAdministrativoViewModel.pass_processo_pad(self, processos_pad.qs)
+                processos_lebre = ConsultaLebreFilter(self.request.GET, queryset=lebre)
+                processos_lebre = ProcessoAdministrativoViewModel.pass_processo_lebre(self, processos_lebre.qs)
+                processos = processos_pad + processos_lebre
+                return processos
         return processos
 
 

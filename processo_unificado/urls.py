@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 from processo_unificado.views import ConsultaProcessos
 
