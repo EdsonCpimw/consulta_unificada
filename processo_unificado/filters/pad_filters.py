@@ -15,7 +15,6 @@ class ConsultaPadFilter(django_filters.FilterSet):
 
     def filter_cpf_cnpj(self, queryset, name, value):
         cpf_cnpj = remove_caracteres(value)
-        print(cpf_cnpj)
         if len(cpf_cnpj) == 11:
            return queryset.filter(cpf__contains=cpf_cnpj)
 
