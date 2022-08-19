@@ -48,12 +48,19 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware',
 ]
+
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+# SESSION_CACHE_ALIAS = "default"
+# CACHE_MIDDLEWARE_SECONDS = 60*5
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'config.urls'
 
@@ -100,6 +107,14 @@ DATABASES = {
         'NAME': BASE_DIR / 'scup.db.sqlite3',
     },
 }
+
+""" Alterar para banco redis em caso de deploy para produção """
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+#         'LOCATION': 'unique-snowflake',
+#     }
+# }
 
 
 # Password validation
@@ -156,3 +171,5 @@ DATABASE_ROUTERS = [
     'routers.db_routers.Lebre',
     'routers.db_routers.Scup'
 ]
+
+# SECURE_SSL_REDIRECT = True
