@@ -4,5 +4,5 @@ from pad.views import DetalhamentoProcesso
 app_name = 'pad'
 
 urlpatterns = [
-    path('detalhamento/', DetalhamentoProcesso.as_view(), name='detalhamento')
+    path('<int:pk>/detalhamento/', DetalhamentoProcesso.as_view(), name='detalhamento')
 ]
