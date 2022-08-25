@@ -40,12 +40,12 @@ python manage.py migrate
 
 ```
 
-7 - Crie o Super Usuario. Siga as instruções do comando abaixo.
+6 - Crie o Super Usuario. Siga as instruções do comando abaixo.
 ```
 $ python manage.py createsuperuser
 ```
 
-8 - Execute o servidor de aplicação
+7 - Execute o servidor de aplicação
 ```
 python manage.py runserver
 ```
