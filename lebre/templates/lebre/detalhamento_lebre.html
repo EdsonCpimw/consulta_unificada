@@ -143,8 +143,8 @@
                           </div>
                     </div>
                  </div>
-                 <div class="card">
-                      <div class="card-header">
+                 <div class="card card-solid">
+                     <div class="card-header">
                         <h3 class="card-title">Documentos</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -154,106 +154,140 @@
                               <i class="fas fa-times"></i>
                             </button>
                         </div>
-                      </div>
-                      <div class="card-body">
-                          <table id="example2" class="table table-bordered table-striped">
-                              <thead>
-                              <tr>
-                                <th>Ações</th>
-                                <th>Autor</th>
-                                <th>Tipo de Documento</th>
-                                <th>Setor</th>
-                                <th>Data de Criação</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              {% for processo in processos %}
-                                <tr>
-                                  <td class="">
-                                    <a href="#" class="text-muted">
-                                      <i class="fas fa-search"></i>
-                                    </a>
-                                  </td>
-                                  <td>{{ processo.numero_processo }}</td>
-                                  <td>{{ processo.numero_licenca }}</td>
-                                  <td>{{ processo.data_abertura }}</td>
-                                  <td>{{ processo.data_validade }}</td>
-                                </tr>
-                              {% endfor %}
-                              </tbody>
-                          </table>
-                    </div>
-                 </div>
-                  <div class="card">
-                      <div class="card-header">
-                        <h3 class="card-title">Tramitação do Processo</h3>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                              <i class="fas fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                              <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                          <table id="example1" class="table table-bordered table-striped">
-                              <thead>
-                              <tr>
-                                <th>Data de Tramitação</th>
-                                <th>Sigla Setor</th>
-                                <th>Setor Destino</th>
-                                <th>Observação</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              {% for processo in processos %}
-                                <tr>
-                                  <td>{{ processo.numero_processo }}</td>
-                                  <td>{{ processo.nome_pessoa }}</td>
-                                  <td>{{ processo.data_abertura }}</td>
-                                  <td>{{ processo.data_validade }}</td>
-                                </tr>
-                              {% endfor %}
-                              </tbody>
-                          </table>
-                    </div>
-                 </div>
-                  <div class="card">
-                      <div class="card-header">
-                        <h3 class="card-title">Tramitação do Processo</h3>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                              <i class="fas fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                              <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                          <table  class="table table-bordered table-striped">
-                              <thead>
-                              <tr>
-                                <th>Data de Tramitação</th>
-                                <th>Sigla Setor</th>
-                                <th>Setor Destino</th>
-                                <th>Observação</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              {% for processo in processos %}
-                                <tr>
-                                  <td>{{ processo.numero_processo }}</td>
-                                  <td>{{ processo.nome_pessoa }}</td>
-                                  <td>{{ processo.data_abertura }}</td>
-                                  <td>{{ processo.data_validade }}</td>
-                                </tr>
-                              {% endfor %}
-                              </tbody>
-                          </table>
-                    </div>
-                 </div>
+                     </div>
+                     <div class="card-body">
+                          <div class="row mt-2">
+                            <nav class="w-100">
+                              <div class="nav nav-tabs" id="product-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="notificacoes-auto-vistoria-tab" data-toggle="tab" href="#notificacoes-auto-vistoria" role="tab" aria-controls="notificacoes-auto-vistoria" aria-selected="true">Notificações, Autos e Vistorias </a>
+                                <a class="nav-item nav-link" id="pareceres-arquivos-tab" data-toggle="tab" href="#pareceres-arquivos" role="tab" aria-controls="pareceres-arquivos" aria-selected="false">Pareceres/Arquivos</a>
+                                <a class="nav-item nav-link" id="tramitacao-despacho-tab" data-toggle="tab" href="#tramitacao-despacho" role="tab" aria-controls="tramitacao-despacho" aria-selected="false">Tramitação/Despacho</a>
+                                <a class="nav-item nav-link" id="tramitacao-interno-tab" data-toggle="tab" href="#tramitacao-interno" role="tab" aria-controls="tramitacao-interno" aria-selected="false">Despacho Interno</a>
+                              </div>
+                            </nav>
+                            <div class="card-body tab-content p-3" id="nav-tabContent">
+                              <div class="tab-pane fade show active" id="notificacoes-auto-vistoria" role="tabpanel" aria-labelledby="notificacoes-auto-vistoriao-tab">
+                                  <div class="mb-3">
+                                      <p class="h4">Notificações</p>
+                                      <table id="notificacaoLebre" class="table table-bordered table-striped">
+                                          <thead>
+                                          <tr>
+                                            <th>Numero</th>
+                                            <th>DAta Emissão</th>
+                                            <th>Tipo</th>
+                                            <th>Assunto</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          {% for notificacao in notificacoes %}
+                                            <tr>
+                                              <td><a href="{{notificacao.documento_notificacao.url}}" target="_blank">{{ notificacao.codigo_numero }}</a></td>
+                                              <td>{{ notificacao.data_emissao | date:"d/m/Y" }}</td>
+                                              <td>{{ notificacao.tipo_aviso }}</td>
+                                              <td>{{ notificacao.descricao_assunto }}</td>
+                                            </tr>
+                                          {% endfor %}
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  <div class="mt-5">
+                                     <p class="h4">Vistorias</p>
+                                      <table id="vistoriaLebre" class="table table-bordered table-striped">
+                                          <thead>
+                                          <tr>
+                                            <th>Numero</th>
+                                            <th>Data Vistoria</th>
+                                            <th>Descrição</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          {% for vistoria in vistorias %}
+                                            <tr>
+                                              <td><a href="{{vistoria.documento_vistoria.url}}" target="_blank">{{ vistoria.numero_vistoria }}</a></td>
+                                              <td>{{ vistoria.data_vistoria | date:"d/m/Y" }}</td>
+                                              <td>{{ vistoria.descricao }}</td>
+                                            </tr>
+                                          {% endfor %}
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                              <div class="tab-pane fade" id="pareceres-arquivos" role="tabpanel" aria-labelledby="pareceres-arquivos-tab">
+                                  <table id="pareceresArquivosLebre" class="table table-bordered table-striped">
+                                      <thead>
+                                      <tr>
+                                        <th>Documento</th>
+                                        <th>Data de Emissão</th>
+                                        <th>Usuário</th>
+                                        <th>Descrição</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      {% for parecer in pareceres %}
+                                        <tr>
+                                          <td><a href="{{ parecer.arquivo_parecer.url }}" target="_blank">{{ parecer.descricao_documento }}</a></td>
+                                          <td>{{ parecer.data_emissao | date:"d/m/Y" }}</td>
+                                          <td>{{ parecer.descricao_usuario }}</td>
+                                          <td>{{ parecer.descricao }}</td>
+                                        </tr>
+                                      {% endfor %}
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <div class="tab-pane fade" id="tramitacao-despacho" role="tabpanel" aria-labelledby="tramitacao-despacho-tab">
+                                  <table id="tramitacaoLebre" class="table table-bordered table-striped">
+                                      <thead>
+                                      <tr>
+                                        <th>Tipo</th>
+                                        <th>Orgão/Setor Origem</th>
+                                        <th>Emissão Guia</th>
+                                        <th>Orgão/Setor Destino</th>
+                                        <th>Receb. Guia</th>
+                                        <th>Despacho</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      {% for tramitacao in tramitacoes %}
+                                        <tr>
+                                          <td>{{ tramitacao.tipo }}</td>
+                                          <td>{{ tramitacao.orgao_origem }}</td>
+                                          <td>{{ tramitacao.data_remessa | date:"d/m/Y" }}</td>
+                                          <td>{{ tramitacao.setor_destino }}</td>
+                                          <td>{{ tramitacao.data_recebimento | date:"d/m/Y" }}</td>
+                                          <td>{{ tramitacao.despacho }}</td>
+                                        </tr>
+                                      {% endfor %}
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <div class="tab-pane fade" id="tramitacao-interno" role="tabpanel" aria-labelledby="tramitacao-interno-tab">
+                                  <table id="despachoInternoLebre" class="table table-bordered table-striped">
+                                      <thead>
+                                      <tr>
+                                        <th>Servidor Origem</th>
+                                        <th>Servidor Destino</th>
+                                        <th>Data Despacho</th>
+                                        <th>Conclusão Prevista</th>
+                                        <th>Despacho</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      {% for despacho in despachos %}
+                                        <tr>
+                                          <td>{{ despacho.origem }}</td>
+                                          <td>{{ despacho.destino }}</td>
+                                          <td>{{ despacho.data_despacho | date:"d/m/Y" }}</td>
+                                          <td>{{ despacho.data_conclusao | date:"d/m/Y" }}</td>
+                                          <td>{{ despacho.despacho }}</td>
+                                        </tr>
+                                      {% endfor %}
+                                      </tbody>
+                                  </table>
+                              </div>
+                            </div>
+                          </div>
+                     </div>
+                  </div>
                   <div class="card">
                       <div class="card-body">
                           <div class="row">
