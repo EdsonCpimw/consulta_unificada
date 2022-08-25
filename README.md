@@ -37,6 +37,10 @@ seguir o .envExemple
 ```
 IMPORTANTE: Necessário criar um .env com as configurações antes do proximo comando
 python manage.py migrate
+python manage.py migrate  --database=scup_db 
+python manage.py migrate  --database=pad_db
+python manage.py migrate  --database=users_db 
+python manage.py migrate  --database=lebre_db
 
 ```
 
