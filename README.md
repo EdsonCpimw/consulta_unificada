@@ -35,7 +35,6 @@ seguir o .envExemple
 5 - Executar as migrações para atualizar seu banco local
 
 ```
-IMPORTANTE: Necessário criar um .env com as configurações antes do proximo comando
 python manage.py migrate
 python manage.py migrate  --database=scup_db 
 python manage.py migrate  --database=pad_db
