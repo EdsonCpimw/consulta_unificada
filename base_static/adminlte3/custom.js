@@ -11,7 +11,7 @@ $("#example1",).DataTable({
   "responsive": true, "lengthChange": false, "autoWidth": false, "searching": false,
   "buttons": ["csv", "excel", "pdf", "print", "colvis"]
 }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-$('#example2').DataTable({
+$('#documentosPad').DataTable({
   "paging": true,
   "lengthChange": false,
   "searching": true,
@@ -20,10 +20,32 @@ $('#example2').DataTable({
   "autoWidth": false,
   "responsive": true,
 });
-$("#example",).DataTable({
-  "responsive": true, "lengthChange": false, "autoWidth": false, "searching": true,
+$("#tramitacaoPad",).DataTable({
+  "responsive": true, "lengthChange": false, "ordering": false, "autoWidth": false, "searching": true,
   "buttons": ["csv", "excel", "pdf", "print", "colvis"]
-}).buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+}).buttons().container().appendTo('#tramitacaoPad_wrapper .col-md-6:eq(0)');
+$("#notificacaoLebre",).DataTable({
+  "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
+});
+$("#vistoriaLebre",).DataTable({
+  "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
+});
+$("#averbacoesLebre",).DataTable({
+  "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
+  "buttons": ["csv", "excel", "pdf", "print", "colvis"]
+}).buttons().container().appendTo('#averbacoesLebre_wrapper .col-md-6:eq(0)');
+$("#pareceresArquivosLebre",).DataTable({
+  "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
+  "buttons": ["csv", "excel", "pdf", "print", "colvis"]
+});
+$("#tramitacaoLebre",).DataTable({
+  "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
+  "buttons": ["csv", "excel", "pdf", "print", "colvis"]
+}).buttons().container().appendTo('#tramitacaoLebre_wrapper .col-md-6:eq(0)');
+$("#despachoInternoLebre",).DataTable({
+  "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
+  "buttons": ["csv", "excel", "pdf", "print", "colvis"]
+}).buttons().container().appendTo('#despachoInternoLebre_wrapper .col-md-6:eq(0)');
 });
 
 var x = document.getElementsByClassName("cpfcnpj");
@@ -57,3 +79,11 @@ document.querySelector('button[type="reset"]').addEventListener('click', functio
   e.preventDefault();
   this.parentElement.reset();
 })
+
+$(document).ready( function() {
+   $('#despachoInternoLebre').dataTable( {
+     "language": {
+       "emptyTable": "No data ae"
+     }
+   });
+});
