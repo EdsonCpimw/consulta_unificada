@@ -31,10 +31,9 @@ class ViewProcessoAdministrativoCorporativo(models.Model):
         return f'{self.id}, {self.numero_processo}'
 
 
-
 class ViewTramitacaoCorporativo(models.Model):
 
-    id_processo = models.IntegerField( null=True, blank=True)
+    id_processo = models.IntegerField()
     numero_processo = models.CharField(max_length=100)
     orgao_destino = models.CharField(max_length=100)
     data_envio = models.DateField(default=datetime.datetime.now)
@@ -45,7 +44,7 @@ class ViewTramitacaoCorporativo(models.Model):
         return f'{self.id_processo}, {self.numero_processo}'
 
     class Meta:
-        db_table = 'tb_view_tramitacao'
+        db_table = 'tb_view_tramitacao_corporativo'
         ordering = ['-data_envio', ]
 
 
@@ -54,8 +53,9 @@ def upload_documento_path(instance, filename):
     filename = f'{instance.id_processo}/{uuid.uuid4()}.{ext}'
     return "documentos/%s" % (filename)
 
+
 class ViewDocumentosPad(models.Model):
-    id_processo = models.IntegerField(null=True, blank=True)
+    id_processo = models.IntegerField()
     numero_processo = models.CharField(max_length=100)
     autor = models.CharField(max_length=100)
     codigo_documento = models.CharField(max_length=100)

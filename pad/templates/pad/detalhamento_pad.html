@@ -157,7 +157,7 @@
                         </div>
                       </div>
                       <div class="card-body">
-                          <table id="example2" class="table table-bordered table-striped">
+                          <table id="documentosPad" class="table table-bordered table-striped">
                               <thead>
                               <tr>
                                 <th>Ações</th>
@@ -198,7 +198,7 @@
                         </div>
                       </div>
                       <div class="card-body">
-                          <table id="example" class="table table-bordered table-striped">
+                          <table id="tramitacaoPad" class="table table-bordered table-striped">
                               <thead>
                               <tr>
                                 <th>Data de Tramitação</th>
@@ -210,7 +210,7 @@
                               <tbody>
                               {% for tramitacao in tramitacoes %}
                                 <tr>
-                                  <td>{{ tramitacao.data_envio | date:"d/m/Y"}}</td>
+                                  <td>{{ tramitacao.data_envio | date:"d/m/Y" }}</td>
                                   <td>{{ tramitacao.sigla_orgao }}</td>
                                   <td>{{ tramitacao.orgao_destino }}</td>
                                   <td>{{ tramitacao.observacao }}</td>
