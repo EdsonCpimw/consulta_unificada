@@ -1,10 +1,13 @@
 from django import forms
+from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV2Invisible
 from processo_unificado.models import Municipio
 
 
 
 class ConsultaModelForm(forms.Form):
 
+    captcha = ReCaptchaField(widget=ReCaptchaV2Invisible)
     numero_processo = forms.CharField(required=False, widget=forms.TextInput(
         attrs={'class': 'form-control', 'placeholder': "Numero do Processo"}
     ))
