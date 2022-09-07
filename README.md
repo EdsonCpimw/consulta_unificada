@@ -35,7 +35,6 @@ seguir o .envExemple
 5 - Executar as migrações para atualizar seu banco local
 
 ```
-python manage.py migrate
 python manage.py migrate  --database=scup_db 
 python manage.py migrate  --database=pad_db
 python manage.py migrate  --database=users_db 
@@ -45,7 +44,7 @@ python manage.py migrate  --database=lebre_db
 
 6 - Crie o Super Usuario. Siga as instruções do comando abaixo.
 ```
-$ python manage.py createsuperuser
+$ python manage.py createsuperuser --database=users_db
 ```
 
 7 - Execute o servidor de aplicação
