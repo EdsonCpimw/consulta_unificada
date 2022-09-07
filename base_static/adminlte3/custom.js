@@ -6,11 +6,17 @@ $(function () {
   bsCustomFileInput.init();
 });
 
+//$(document).ready( function () {
+//  var table = $('#example1').DataTable();
+//  $(".dataTables_empty").text("Desculpe, nada foi encontrado!");
+//});
+
 $(function () {
 $("#example1",).DataTable({
   "responsive": true, "lengthChange": false, "autoWidth": false, "searching": false,
   "buttons": ["csv", "excel", "pdf", "print", "colvis"]
 }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+$(".dataTables_empty").text("Desculpe, nada foi encontrado!");
 $('#documentosPad').DataTable({
   "paging": true,
   "lengthChange": false,
@@ -20,32 +26,40 @@ $('#documentosPad').DataTable({
   "autoWidth": false,
   "responsive": true,
 });
+$(".dataTables_empty").text("Desculpe, nada foi encontrado!");
 $("#tramitacaoPad",).DataTable({
   "responsive": true, "lengthChange": false, "ordering": false, "autoWidth": false, "searching": true,
   "buttons": ["csv", "excel", "pdf", "print", "colvis"]
 }).buttons().container().appendTo('#tramitacaoPad_wrapper .col-md-6:eq(0)');
+$(".dataTables_empty").text("Desculpe, nada foi encontrado!");
 $("#notificacaoLebre",).DataTable({
   "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
 });
+$(".dataTables_empty").text("Desculpe, nada foi encontrado!");
 $("#vistoriaLebre",).DataTable({
   "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
 });
+$(".dataTables_empty").text("Desculpe, nada foi encontrado!");
 $("#averbacoesLebre",).DataTable({
   "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
   "buttons": ["csv", "excel", "pdf", "print", "colvis"]
 }).buttons().container().appendTo('#averbacoesLebre_wrapper .col-md-6:eq(0)');
+$(".dataTables_empty").text("Desculpe, nada foi encontrado!");
 $("#pareceresArquivosLebre",).DataTable({
   "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
   "buttons": ["csv", "excel", "pdf", "print", "colvis"]
 });
+$(".dataTables_empty").text("Desculpe, nada foi encontrado!");
 $("#tramitacaoLebre",).DataTable({
   "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
   "buttons": ["csv", "excel", "pdf", "print", "colvis"]
 }).buttons().container().appendTo('#tramitacaoLebre_wrapper .col-md-6:eq(0)');
+$(".dataTables_empty").text("Desculpe, nada foi encontrado!");
 $("#despachoInternoLebre",).DataTable({
   "responsive": true, "lengthChange": false, "autoWidth": false, "ordering": false, "searching": true,
   "buttons": ["csv", "excel", "pdf", "print", "colvis"]
 }).buttons().container().appendTo('#despachoInternoLebre_wrapper .col-md-6:eq(0)');
+$(".dataTables_empty").text("Desculpe, nada foi encontrado!");
 });
 
 var x = document.getElementsByClassName("cpfcnpj");
